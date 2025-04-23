@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Juego Simple</title>
+  <style>
+    #cuadrado {
+      width: 50px;
+      height: 50px;
+      background-color: red;
+      position: absolute;
+    }
+  </style>
+</head>
+<body>
+  <h1>Puntos: <span id="puntos">0</span></h1>
+  <div id="cuadrado"></div>
+  <script>
+    const cuadrado = document.getElementById('cuadrado');
+    const puntos = document.getElementById('puntos');
+    let puntaje = 0;
+
+    cuadrado.addEventListener('click', () => {
+      puntaje++;
+      puntos.textContent = puntaje;
+      moverCuadrado();
+    });
+
+    function moverCuadrado() {
+      const x = Math.random() * (window.innerWidth - 50);
+      const y = Math.random() * (window.innerHeight - 50);
+      cuadrado.style.left = x + 'px';
+      cuadrado.style.top = y + 'px';
+    }
+
+    moverCuadrado();
+  </script>
+</body>
+</html>
